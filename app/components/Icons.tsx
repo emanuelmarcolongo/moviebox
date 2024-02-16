@@ -1,10 +1,8 @@
 import * as React from "react";
 
-interface SearchIconProps {
-  className?: string;
-}
+import { IconProps } from "@/app/interfaces/icons";
 
-export const SearchIcon = ({ className }: SearchIconProps) => (
+export const SearchIcon = ({ className }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
