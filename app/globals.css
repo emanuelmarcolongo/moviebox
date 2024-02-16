@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.light_gradient {
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #fff 100%);
+  filter: blur(220px);
+}
+
+.light_gradient2 {
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #1b1b1b 60%);
+  filter: blur(123px);
+}
