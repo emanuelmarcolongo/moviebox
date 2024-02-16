@@ -37,18 +37,32 @@ const getDataFromUrl = async (
   }
 };
 
-const ContentList = async ({ title, url }: { title: string; url: string }) => {
+const ContentList = async ({
+  title,
+  url,
+  className,
+}: {
+  title: string;
+  url: string;
+  className?: string;
+}) => {
   const movieData = await getDataFromUrl(url);
 
   return (
-    <div className="">
-      <h1 className="uppercase text-white font-bold">{title}</h1>
-      <Carousel>
+    <section className={`w-screen ${className} py-10`}>
+      <div className="flex  uppercase text-white items-center justify-between max-w-[970px] mx-auto">
+        <h1 className="font-bold text-2xl py-2">{title}</h1>
+        <p className="hover:underline hover:cursor-pointer font-bold">
+          ver mais...
+        </p>
+      </div>
+
+      <Carousel className="max-w-[970px] mx-auto">
         <CarouselContent>
           {movieData?.results?.map((item, idx) => (
-            <CarouselItem key={item.id} className="basis-1/8">
+            <CarouselItem key={item.id} className="basis-1/8  ">
               <Image
-                className="m-1 hover:cursor-pointer rounded-2xl"
+                className="m-1 hover:cursor-pointer hover:scale-105  rounded-2xl "
                 alt="poster img"
                 width={180}
                 height={200}
@@ -60,7 +74,7 @@ const ContentList = async ({ title, url }: { title: string; url: string }) => {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-    </div>
+    </section>
   );
 };
 
