@@ -39,19 +39,13 @@ const getDataFromUrl = async (
 
 const ContentList = async ({ title, url }: { title: string; url: string }) => {
   const movieData = await getDataFromUrl(url);
-  if (!movieData) {
-    return (
-      <div>
-        <h1>Data not found...</h1>
-      </div>
-    );
-  }
+
   return (
     <div className="">
       <h1 className="uppercase text-white font-bold">{title}</h1>
       <Carousel>
         <CarouselContent>
-          {movieData.results.map((item, idx) => (
+          {movieData?.results?.map((item, idx) => (
             <CarouselItem key={item.id} className="basis-1/8">
               <Image
                 className="m-1 hover:cursor-pointer rounded-2xl"
