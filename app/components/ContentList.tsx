@@ -6,17 +6,19 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { IRequestMovieData } from "../interfaces/movies";
+import { IMovieResults, IRequestMovieData } from "../interfaces/movies";
 import Image from "next/image";
+import Link from "next/link";
+import { IShowResponseData, IShowsResults } from "../interfaces/shows";
 
 const getDataFromUrl = async (
   url: string
-): Promise<IRequestMovieData | void> => {
+): Promise<IRequestMovieData | IShowResponseData | void> => {
   const options = {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization: `Bearer ${process.env.MOVIE_DB_API_TOKEN}`,
+      Authorization: `Bearer ${process.env.MOVIEDB_API_TOKEN}`,
     },
     next: {
       revalidate: 9600,
@@ -48,6 +50,18 @@ const ContentList = async ({
 }) => {
   const movieData = await getDataFromUrl(url);
 
+  const hrefHandler = (item: IMovieResults | IShowsResults): {pathname: string, query: {id: number}} => {
+   if ('title' in item) {
+    
+    const cleanTitle = item.title.replaceAll(" ", "-").toLowerCase();
+    return {pathname: `/filme/${cleanTitle}` , query: {id: item.id}, }
+   } else if ('name' in item) {
+    const cleanName = item.name.replaceAll(" ", "-").toLowerCase();
+    return {pathname: `/serie/${cleanName}` , query: {id: item.id}, }
+   }
+   else throw new Error("Tipo de mídia não encontrado");
+  }
+
   return (
     <section className={`w-screen ${className} py-10`}>
       <div className="flex  uppercase text-white items-center justify-between max-w-[970px] mx-auto">
@@ -61,6 +75,7 @@ const ContentList = async ({
         <CarouselContent>
           {movieData?.results?.map((item, idx) => (
             <CarouselItem key={item.id} className="basis-1/8  ">
+              <Link href={hrefHandler(item)} >
               <Image
                 className="m-1 hover:cursor-pointer hover:scale-105  rounded-2xl "
                 alt="poster img"
@@ -68,6 +83,7 @@ const ContentList = async ({
                 height={200}
                 src={`${process.env.IMG_URL}${item.poster_path}`}
               />
+              </Link>
             </CarouselItem>
           ))}
         </CarouselContent>

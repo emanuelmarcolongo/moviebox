@@ -13,6 +13,7 @@ interface IMovieResults {
     vote_average: number;
     vote_count: number;
     video: boolean;
+    media_type: string;
   };
 
 interface IRequestMovieData {
