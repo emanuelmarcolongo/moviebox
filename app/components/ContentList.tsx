@@ -6,7 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { IMovieResults, IRequestMovieData } from "../interfaces/movies";
+import {ITrendingMoviesResults, IRequestMovieData } from "../interfaces/movies";
 import Image from "next/image";
 import Link from "next/link";
 import { IShowResponseData, IShowsResults } from "../interfaces/shows";
@@ -50,7 +50,7 @@ const ContentList = async ({
 }) => {
   const movieData = await getDataFromUrl(url);
 
-  const hrefHandler = (item: IMovieResults | IShowsResults): {pathname: string, query: {id: number}} => {
+  const hrefHandler = (item: ITrendingMoviesResults | IShowsResults): {pathname: string, query: {id: number}} => {
    if ('title' in item) {
     
     const cleanTitle = item.title.replaceAll(" ", "-").toLowerCase();

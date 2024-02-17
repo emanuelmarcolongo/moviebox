@@ -1,7 +1,9 @@
-import React from 'react'
+import HeroMoviePage from '@/app/components/HeroMoviePage';
+import { IMovieByIdResults } from '@/app/interfaces/movies';
+import Image from 'next/image';
 
 
-const getMovieDetails = async (id: string) => {
+const getMovieDetails = async (id: string): Promise<IMovieByIdResults> => {
     const url = `https://api.themoviedb.org/3/movie/${id}?language=pt-br`;
 
     const options = {
@@ -25,7 +27,7 @@ const getMovieDetails = async (id: string) => {
       const data = await response.json();
       return data;
     } catch (err) {
-      console.error(err);
+      throw new Error("Movie info not found")
     }
 }
 
@@ -33,14 +35,16 @@ const getMovieDetails = async (id: string) => {
 const MoviePage = async ({searchParams}:{searchParams: {id: string}}) => {
   const id = searchParams.id
   const movieInfo = await getMovieDetails(id);
+  const imageUrl = process.env.IMG_URL+movieInfo.backdrop_path;
 
-  console.log(movieInfo)
   
 
 
   return (
-    <div className='mt-64 text-white'>page</div>
+    <div className='mt-64 text-white'>
+      <HeroMoviePage imageUrl={imageUrl} />
+      <h1>{movieInfo.title}</h1>
+    </div>
   )
 }
-
 export default MoviePage;
