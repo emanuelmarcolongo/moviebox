@@ -3,9 +3,26 @@
 @tailwind utilities;
 
 .inset_shadow {
-  box-shadow: inset 0px 100px 1000px 20px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: inset 1px -31px 52px 74px rgba(19, 19, 19, 1);
+  -moz-box-shadow: inset 1px -31px 52px 74px rgba(19, 19, 19, 1);
+  box-shadow: inset 1px -31px 52px 74px rgba(19, 19, 19, 1);
 }
 
 .poster {
   background-image: url("../public/images/moviebox-banner.png");
+  mask-repeat: no-repeat;
+}
+
+.body-background {
+  background-image: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.005) 0,
+      rgba(255, 255, 255, 0.005) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+  background-size: 10px, 10px;
+  background-attachment: fixed;
+  background-color: #131313;
 }
