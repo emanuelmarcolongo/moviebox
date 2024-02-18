@@ -16,6 +16,7 @@ const MovieInfo = ({ movieInfo, className }: MovieInfoProps) => {
     release_date,
     vote_average,
     overview,
+    runtime,
   } = movieInfo;
 
   const releaseDateBr = new Date(release_date)
@@ -23,8 +24,14 @@ const MovieInfo = ({ movieInfo, className }: MovieInfoProps) => {
     .replaceAll("/", "-");
   const year = release_date.split("-")[0];
 
+  const movieTime: String = `${Math.floor(runtime / 60)}h ${Math.floor(
+    runtime % 60
+  )}min`;
+
   return (
-    <article className="-mt-10 z-10  text-white flex flex-col items-center px-8 space-y-6 md:space-y-0 md:flex-row md:items-start md:space-x-10 relative">
+    <article
+      className={`${className} -mt-10 z-10  text-white flex flex-col items-center px-8 space-y-6 md:space-y-0 md:flex-row md:items-start md:space-x-10 relative`}
+    >
       <div className="relative md:w-[200px] lg:h-[300px] w-[300px] h-[400px] object-cover overflow-hidden md:min-w-[200px]">
         <Image
           alt={`${title} poster`}
@@ -39,10 +46,11 @@ const MovieInfo = ({ movieInfo, className }: MovieInfoProps) => {
       <div className="flex flex-col justify-between items-start space-y-4 md:pl-12 text-sm md:text-base">
         {tagline !== "" && <p className="italic text-white/75">"{tagline}"</p>}
 
-        <div className="text-bold text-3xl ">
-          {title} <span className=" text-white/85">({year}) </span>
+        <div className="font-bold text-3xl ">
+          {title} <span className="font-normal text-white/85">({year}) </span>
           <br></br>
-          <p className="text-base italic space-x-2 text-white/75">
+          <p className="text-base italic font-normal space-x-2 text-white/75">
+            <span>{movieTime} -</span>
             {genres.map((genre) => (
               <span key={genre.id}>{genre.name}</span>
             ))}

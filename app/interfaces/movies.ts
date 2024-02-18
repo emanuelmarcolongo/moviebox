@@ -1,29 +1,36 @@
-export type {ITrendingMoviesResults, IRequestMovieData , IMovieByIdResults};
+import { Actor, Crew } from "./crew";
+
+export type {
+  ITrendingMoviesResults,
+  IRequestMovieData,
+  IMovieByIdResults,
+  ICredits,
+};
 
 interface ITrendingMoviesResults {
-    adult: boolean;
-    backdrop_path: string;
-    genre_ids: number[];
-    id: number;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    title: string;
-    release_date: string;
-    vote_average: number;
-    vote_count: number;
-    video: boolean;
-    media_type: string;
-  };
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  title: string;
+  release_date: string;
+  vote_average: number;
+  vote_count: number;
+  video: boolean;
+  media_type: string;
+}
 
 interface IRequestMovieData {
-    page: number;
-    results: ITrendingMoviesResults[];
-    total_pages: number;
-    total_results: number;
-};
+  page: number;
+  results: ITrendingMoviesResults[];
+  total_pages: number;
+  total_results: number;
+}
 
 type Genre = {
   id: number;
@@ -74,4 +81,10 @@ interface IMovieByIdResults {
   video: boolean;
   vote_average: number;
   vote_count: number;
-};
+  credits: ICredits;
+}
+
+interface ICredits {
+  cast: Actor[];
+  crew: Crew[];
+}

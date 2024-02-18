@@ -1,11 +1,12 @@
 import { IMovieByIdResults } from "@/app/interfaces/movies";
 import { notFound } from "next/navigation";
 import HeroMoviePage from "./components/HeroMoviePage";
-import Image from "next/image";
 import MovieInfo from "./components/MovieInfo";
 
+import CastInfo from "./components/CastInfo";
+
 const getMovieDetails = async (id: string): Promise<IMovieByIdResults> => {
-  const url = `https://api.themoviedb.org/3/movie/${id}?language=pt-br`;
+  const url = `https://api.themoviedb.org/3/movie/${id}?append_to_response=credits&language=pt-br`;
 
   const options = {
     method: "GET",
@@ -46,8 +47,8 @@ const MoviePage = async ({
       <div className="-z-10 relative">
         <HeroMoviePage imageUrl={imageUrl} />
       </div>
-
       <MovieInfo movieInfo={movieInfo} />
+      <CastInfo cast={movieInfo.credits.cast} />
     </main>
   );
 };

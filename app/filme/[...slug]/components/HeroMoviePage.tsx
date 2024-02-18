@@ -8,7 +8,7 @@ type HeroMoviePageProps = {
 const HeroMoviePage = ({ imageUrl, className }: HeroMoviePageProps) => {
   return (
     <div
-      className={`bg-transparent rounded-xl inset_shadow lg:w-[1024px] w-screen aspect-video -mt-24 relative`}
+      className={`${className} bg-transparent rounded-xl inset_shadow lg:w-[1024px] w-screen aspect-video -mt-24 relative`}
     >
       <Image
         sizes="(min-width: 1080px) 1024px, 95.26vw"
