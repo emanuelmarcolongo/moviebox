@@ -1,4 +1,4 @@
-import { Actor, Crew } from "./crew";
+import { Actor, Crew } from "./cast";
 
 export type {
   ITrendingMoviesResults,
