@@ -13,10 +13,10 @@ type CastInfoProps = {
 };
 const CastInfo = ({ cast }: CastInfoProps) => {
   return (
-    <section className="mt-24  px-12 space-y-4">
-      <h1 className="font-semibold text-white text-3xl">Elenco</h1>
+    <section className={`space-y-6 mt-12 w-screen bg-black py-8`}>
+      <h1 className="font-bold text-3xl py-2 text-white text-center">Elenco</h1>
 
-      <Carousel className=" mx-auto  ">
+      <Carousel className="max-w-[970px] mx-auto px-10 ">
         <CarouselContent>
           {cast?.map((item, idx) => (
             <CarouselItem
@@ -50,7 +50,7 @@ const CastInfo = ({ cast }: CastInfoProps) => {
                 </div>
               )}
 
-              <div className="bg-black text-white border-2 font-bold -mt-1 flex flex-col items-center justify-center text-center rounded-b-2xl py-2">
+              <div className=" text-white border-2 font-bold -mt-1 flex flex-col items-center justify-center text-center rounded-b-2xl py-2">
                 <p>{item.name}</p>
 
                 <p className="font-normal text-center ">{item.character}</p>
