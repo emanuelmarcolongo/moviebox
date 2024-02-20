@@ -1,9 +1,9 @@
 import { IMovieByIdResults } from "@/app/@types/movies";
 import { notFound } from "next/navigation";
-import HeroMoviePage from "./components/HeroMoviePage";
 import MovieInfo from "./components/MovieInfo";
-import CastInfo from "./components/CastInfo";
-import MovieTrailers from "./components/MovieTrailers";
+import CastList from "@/app/components/shared/CastList";
+import TrailerList from "@/app/components/shared/TrailerList";
+import Banner from "@/app/components/shared/Banner";
 
 const getMovieDetails = async (id: string): Promise<IMovieByIdResults> => {
   const url = `https://api.themoviedb.org/3/movie/${id}?append_to_response=videos%2Ccredits&language=pt-br`;
@@ -46,14 +46,14 @@ const MoviePage = async ({
   return (
     <main className="flex min-h-screen flex-col items-center relative ">
       <div className="-z-10 relative box-border">
-        <HeroMoviePage imageUrl={imageUrl} />
+        <Banner imageUrl={imageUrl} />
       </div>
 
       <MovieInfo movieInfo={movieInfo} />
 
-      <CastInfo cast={movieInfo.credits.cast} />
+      <CastList cast={movieInfo.credits.cast} />
 
-      <MovieTrailers videos={relatedVideos} />
+      <TrailerList videos={relatedVideos} />
     </main>
   );
 };

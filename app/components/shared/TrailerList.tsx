@@ -1,6 +1,6 @@
 import { ITrailer } from "@/app/@types/movies";
 
-type MovieTrailersProps = {
+type TrailerListProps = {
   videos: ITrailer[];
 };
 import {
@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const MovieTrailers = ({ videos }: MovieTrailersProps) => {
+const TrailerList = ({ videos }: TrailerListProps) => {
   const trailers = videos.filter(
     (video) =>
       video.type === "Trailer" && video.official && video.site === "YouTube"
@@ -46,4 +46,4 @@ const MovieTrailers = ({ videos }: MovieTrailersProps) => {
   );
 };
 
-export default MovieTrailers;
+export default TrailerList;

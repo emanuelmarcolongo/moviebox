@@ -1,10 +1,9 @@
 import { notFound } from "next/navigation";
-import HeroMoviePage from "./components/HeroMoviePage";
-import CastInfo from "./components/CastInfo";
-import MovieTrailers from "./components/ShowTrailers";
 import { IShowsResultsById } from "@/app/@types/shows";
 import ShowInfo from "./components/ShowInfo";
-import ShowTrailers from "./components/ShowTrailers";
+import CastList from "@/app/components/shared/CastList";
+import TrailerList from "@/app/components/shared/TrailerList";
+import Banner from "@/app/components/shared/Banner";
 
 const getShowDetails = async (id: string): Promise<IShowsResultsById> => {
   const url = `https://api.themoviedb.org/3/tv/${id}?append_to_response=videos%2Ccredits&language=pt-br`;
@@ -43,14 +42,13 @@ const ShowPage = async ({ searchParams }: { searchParams: { id: string } }) => {
   return (
     <main className="flex min-h-screen flex-col items-center relative ">
       <div className="-z-10 relative box-border">
-        <HeroMoviePage imageUrl={imageUrl} />
+        <Banner imageUrl={imageUrl} />
       </div>
 
       <ShowInfo showInfo={showInfo} />
 
-      <CastInfo cast={showInfo.credits.cast} />
-
-      <ShowTrailers videos={relatedVideos} />
+      <CastList cast={showInfo.credits.cast} />
+      <TrailerList videos={relatedVideos} />
     </main>
   );
 };

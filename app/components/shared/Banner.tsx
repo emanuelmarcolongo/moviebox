@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-type HeroMoviePageProps = {
+type BannerProps = {
   imageUrl: string;
   className?: string;
 };
 
-const HeroMoviePage = ({ imageUrl, className }: HeroMoviePageProps) => {
+const Banner = ({ imageUrl, className }: BannerProps) => {
   return (
     <div
       className={`${className} bg-transparent rounded-xl inset_shadow lg:w-[1024px] w-screen aspect-video -mt-24 relative`}
@@ -23,4 +23,4 @@ const HeroMoviePage = ({ imageUrl, className }: HeroMoviePageProps) => {
   );
 };
 
-export default HeroMoviePage;
+export default Banner;

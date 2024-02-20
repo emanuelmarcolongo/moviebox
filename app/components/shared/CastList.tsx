@@ -8,10 +8,11 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 
-type CastInfoProps = {
+type CastListProps = {
   cast: Actor[];
 };
-const CastInfo = ({ cast }: CastInfoProps) => {
+
+const CastList = ({ cast }: CastListProps) => {
   return (
     <section
       className={`space-y-6 mt-12 w-screen bg-black border-t-2 border-b-2 border-white py-8`}
@@ -67,4 +68,4 @@ const CastInfo = ({ cast }: CastInfoProps) => {
   );
 };
 
-export default CastInfo;
+export default CastList;
