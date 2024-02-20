@@ -1,4 +1,4 @@
-import { ITrailer } from "@/app/interfaces/movies";
+import { ITrailer } from "@/app/@types/movies";
 
 type MovieTrailersProps = {
   videos: ITrailer[];

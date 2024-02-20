@@ -1,4 +1,4 @@
-import { IMovieByIdResults } from "@/app/interfaces/movies";
+import { IMovieByIdResults } from "@/app/@types/movies";
 import { notFound } from "next/navigation";
 import HeroMoviePage from "./components/HeroMoviePage";
 import MovieInfo from "./components/MovieInfo";

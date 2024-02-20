@@ -6,13 +6,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  ITrendingMoviesResults,
-  IRequestMovieData,
-} from "../interfaces/movies";
+import { ITrendingMoviesResults, IRequestMovieData } from "../@types/movies";
 import Image from "next/image";
 import Link from "next/link";
-import { IShowResponseData, IShowsResults } from "../interfaces/shows";
+import { IShowResponseData, IShowsResults } from "../@types/shows";
 
 const getDataFromUrl = async (
   url: string

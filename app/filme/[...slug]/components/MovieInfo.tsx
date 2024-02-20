@@ -1,4 +1,4 @@
-import { IMovieByIdResults } from "@/app/interfaces/movies";
+import { IMovieByIdResults } from "@/app/@types/movies";
 import Image from "next/image";
 import React from "react";
 

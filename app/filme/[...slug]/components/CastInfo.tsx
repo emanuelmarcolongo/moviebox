@@ -1,4 +1,4 @@
-import { Actor } from "@/app/interfaces/crew";
+import { Actor } from "@/app/@types/cast";
 import {
   Carousel,
   CarouselContent,
@@ -13,7 +13,9 @@ type CastInfoProps = {
 };
 const CastInfo = ({ cast }: CastInfoProps) => {
   return (
-    <section className={`space-y-6 mt-12 w-screen bg-black py-8`}>
+    <section
+      className={`space-y-6 mt-12 w-screen bg-black border-t-2 border-b-2 border-white py-8`}
+    >
       <h1 className="font-bold text-3xl py-2 text-white text-center">Elenco</h1>
 
       <Carousel className="max-w-[970px] mx-auto px-10 ">
