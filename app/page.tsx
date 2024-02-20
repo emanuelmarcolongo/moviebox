@@ -1,6 +1,6 @@
-import urls from "./services/DatabaseURLS";
 import ContentList from "./components/ContentList";
 import Hero from "./components/Hero";
+import urls from "./constants/apiURLs";
 
 export default async function Home() {
   return (
