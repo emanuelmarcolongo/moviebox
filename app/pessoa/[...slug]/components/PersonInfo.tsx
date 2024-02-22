@@ -76,7 +76,7 @@ const PersonInfo = ({ personInfo }: PersonInfoProps) => {
                 Parece que a biografia não se encontra disponível em português.
               </p>
             </div>
-            <div className="mt-6 space-y-1 flex flex-col items-center justify-start">
+            <div className="mt-6 space-y-1 flex flex-col justify-between items-center md:items-start">
               <h1 className="font-bold text-xl">Sobre:</h1>
               {!!birthday && (
                 <p>

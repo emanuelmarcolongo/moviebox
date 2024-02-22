@@ -25,15 +25,25 @@ const PersonMovies = ({ movies }: PersonMovieProps) => {
               key={item.id}
               className="basis-1/2 sm:basis-1/3 md:basis-1/5 hover:scale-[102%]  "
             >
-              <Link href={`/filme/${item.title}?id=${item.id}`}>
-                <Image
-                  alt="poster img"
-                  className="rounded-xl"
-                  width={180}
-                  height={200}
-                  src={`${process.env.IMG_URL}${item.poster_path}`}
-                />
-              </Link>
+              {!!item.poster_path && (
+                <Link href={`/filme/${item.title}?id=${item.id}`}>
+                  <Image
+                    alt="poster img"
+                    className="rounded-xl"
+                    width={180}
+                    height={200}
+                    src={`${process.env.IMG_URL}${item.poster_path}`}
+                  />
+                </Link>
+              )}
+              {!item.poster_path && (
+                <Link href={`/filme/${item.title}?id=${item.id}`}>
+                  <div className="bg-white rounded-xl w-full h-full flex flex-col items-center justify-evenly">
+                    Imagem indisponível <br></br>
+                    <p className="text-3xl font-bold">{item.title}</p>
+                  </div>
+                </Link>
+              )}
             </CarouselItem>
           ))}
         </CarouselContent>
