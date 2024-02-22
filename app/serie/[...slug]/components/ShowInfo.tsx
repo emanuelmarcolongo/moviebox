@@ -42,13 +42,14 @@ const ShowInfo = ({ showInfo, className }: ShowInfoProps) => {
           {name} <span className="font-normal text-white/85">({year}) </span>
           <br></br>
           <p className="text-base italic font-normal space-x-2 text-white/75">
-            <span>{episodeTime} -</span>
-            {genres.map((genre) => (
+            {episode_run_time[0] && <span>{episodeTime} -</span>}
+
+            {genres?.map((genre) => (
               <span key={genre.id}>{genre.name}</span>
             ))}
           </p>
         </div>
-        {overview && (
+        {!!overview && (
           <p>
             <span className="text-lg font-bold">Sinopse:</span> <br></br>
             {overview}

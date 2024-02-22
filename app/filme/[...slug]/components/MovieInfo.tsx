@@ -32,31 +32,30 @@ const MovieInfo = ({ movieInfo, className }: MovieInfoProps) => {
     <article
       className={`${className} -mt-10 z-10  text-white flex flex-col items-center px-8 space-y-6 md:space-y-0 md:flex-row md:items-start md:space-x-10 relative`}
     >
-      <div className="relative md:w-[200px] lg:h-[300px] w-[300px] h-[400px] object-cover overflow-hidden md:min-w-[200px]">
+      <div className="relative md:w-[200px] lg:h-[300px] w-[300px] h-[400px] object-cover overflow-hidden md:min-w-[200px] rounded-md drop-shadow-2xl">
         <Image
           alt={`${title} poster`}
           src={process.env.IMG_URL + poster_path}
           fill
-          className="rounded-md"
         />
         <div className="rounded-full  w-12 h-12 flex items-center justify-center ring-4 ring-orange-300 font-bold mt-4 absolute right-2 top-0  bg-black">
           {vote_average.toFixed(1)}
         </div>
       </div>
       <div className="flex flex-col justify-between items-start space-y-4 md:pl-12 text-sm md:text-base">
-        {tagline !== "" && <p className="italic text-white/75">"{tagline}"</p>}
+        {!!tagline && <p className="italic text-white/75">"{tagline}"</p>}
 
         <div className="font-bold text-3xl ">
           {title} <span className="font-normal text-white/85">({year}) </span>
           <br></br>
           <p className="text-base italic font-normal space-x-2 text-white/75">
-            <span>{movieTime} -</span>
-            {genres.map((genre) => (
+            {!!runtime && <span>{movieTime} -</span>}
+            {genres?.map((genre) => (
               <span key={genre.id}>{genre.name}</span>
             ))}
           </p>
         </div>
-        {overview && (
+        {!!overview && (
           <p>
             <span className="text-lg font-bold">Sinopse:</span> <br></br>
             {overview}
