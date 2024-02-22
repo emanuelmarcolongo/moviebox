@@ -10,7 +10,7 @@ export default async function Home() {
       <ContentList title="filmes em alta" url={urls.trendingMovies} />
 
       <ContentList
-        className="bg-black  border-t-2 border-b-2 border-white"
+        className="body-background-black  border-t-2 border-b-2 border-white"
         title="series em alta"
         url={urls.trendingShows}
       />

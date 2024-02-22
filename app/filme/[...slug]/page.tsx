@@ -22,9 +22,9 @@ const MoviePage = async ({
 
       <MovieInfo movieInfo={movieInfo} />
 
-      <CastList cast={movieInfo.credits.cast} />
+      {!!movieInfo.credits.cast && <CastList cast={movieInfo.credits.cast} />}
 
-      <TrailerList videos={relatedVideos} />
+      {!!relatedVideos && <TrailerList videos={relatedVideos} />}
     </main>
   );
 };

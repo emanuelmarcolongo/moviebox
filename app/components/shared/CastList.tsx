@@ -20,7 +20,7 @@ const CastList = ({ cast }: CastListProps) => {
   };
   return (
     <section
-      className={`space-y-6 mt-12 w-screen bg-black border-t-2 border-b-2 border-white py-8`}
+      className={`space-y-6 mt-12 w-screen body-background-black border-t-2 border-b-2 border-white py-8`}
     >
       <h1 className="font-bold text-3xl py-2 text-white text-center">Elenco</h1>
 
@@ -57,7 +57,7 @@ const CastList = ({ cast }: CastListProps) => {
                 </Link>
               )}
               {!item.profile_path && (
-                <div className="body-background w-[180px] h-[250px] text-white flex items-center justify-center text-center flex-wrap">
+                <div className="body-background-gray w-[180px] h-[250px] text-white flex items-center justify-center text-center flex-wrap">
                   Imagem <br></br>indisponível
                 </div>
               )}

@@ -14,7 +14,7 @@ type PersonImagesProps = {
 
 const PersonImages = ({ images }: PersonImagesProps) => {
   return (
-    <section className=" py-12 bg-black w-screen space-y-6 border-t-2 border-b-2 border-white">
+    <section className=" py-12 body-background-black w-screen space-y-6 border-t-2 border-b-2 border-white">
       <h1 className="text-white font-bold text-2xl text-center">Galeria</h1>
       <Carousel className="max-w-[500px] mx-auto px-12 md:px-0  ">
         <CarouselContent>

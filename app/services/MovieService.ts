@@ -11,7 +11,7 @@ const getMovieDataById = async (id: string): Promise<IMovieByIdResults> => {
       Authorization: `Bearer ${process.env.MOVIEDB_API_TOKEN}`,
     },
     next: {
-      revalidate: 9600,
+      revalidate: 99600,
     },
   };
 

@@ -33,7 +33,7 @@ const ShowInfo = ({ showInfo, className }: ShowInfoProps) => {
           fill
           className="rounded-md"
         />
-        <div className="rounded-full  w-12 h-12 flex items-center justify-center ring-4 ring-orange-300 font-bold mt-4 absolute right-2 top-0  bg-black">
+        <div className="rounded-full  w-12 h-12 flex items-center justify-center ring-4 ring-orange-300 font-bold mt-4 absolute right-2 top-0  body-background-black">
           {vote_average.toFixed(1)}
         </div>
       </div>

@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="w-full bg-black h-[50px] bg-opacity-0 fixed top-0 hover:bg-opacity-50 z-50">
+    <div className="w-full body-background-black h-[50px] bg-opacity-0 fixed top-0 hover:bg-opacity-50 z-50">
       <div className="max-w-[970px] mx-auto flex justify-between items-center text-xs md:text-sm px-12">
         <Link href={`/`}>
           <Image

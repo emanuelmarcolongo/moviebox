@@ -14,7 +14,10 @@ const PersonPage = async ({
   const imageUrl = process.env.IMG_URL + personInfo.profile_path;
 
   return (
-    <main className="flex min-h-screen flex-col items-center relative space-y-6 ">
+    <main className="flex min-h-screen flex-col items-center relative space-y-6 mt-24">
+      <h1 className="text-white flex flex-start font-bold text-3xl md:self-start">
+        {personInfo.name}
+      </h1>
       <PersonInfo personInfo={personInfo} />
       {!!personInfo.movie_credits.cast && (
         <PersonMovies movies={personInfo.movie_credits.cast} />

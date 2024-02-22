@@ -9,6 +9,7 @@ const ShowPage = async ({ searchParams }: { searchParams: { id: string } }) => {
   const showInfo = await showService.getShowDataById(id);
   const imageUrl = process.env.IMG_URL + showInfo.backdrop_path;
   const relatedVideos = showInfo.videos.results;
+  const { credits } = showInfo;
 
   return (
     <main className="flex min-h-screen flex-col items-center relative ">
@@ -18,8 +19,8 @@ const ShowPage = async ({ searchParams }: { searchParams: { id: string } }) => {
 
       <ShowInfo showInfo={showInfo} />
 
-      <CastList cast={showInfo.credits.cast} />
-      <TrailerList videos={relatedVideos} />
+      {credits.cast.length > 0 && <CastList cast={showInfo.credits.cast} />}
+      {relatedVideos.length > 0 && <TrailerList videos={relatedVideos} />}
     </main>
   );
 };
