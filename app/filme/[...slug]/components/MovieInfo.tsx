@@ -1,4 +1,10 @@
 import { IMovieByIdResults } from "@/app/@types/movies";
+import {
+  budgetFormatter,
+  movieDirector,
+  movieTimeFormatter,
+  releaseYear,
+} from "@/app/utils";
 import Image from "next/image";
 import React from "react";
 
@@ -17,16 +23,16 @@ const MovieInfo = ({ movieInfo, className }: MovieInfoProps) => {
     vote_average,
     overview,
     runtime,
+    budget,
+    credits,
   } = movieInfo;
 
-  const releaseDateBr = new Date(release_date)
-    .toLocaleDateString("pt-BR")
-    .replaceAll("/", "-");
-  const year = release_date.split("-")[0];
+  const year = releaseYear(release_date);
 
-  const movieTime: String = `${Math.floor(runtime / 60)}h ${Math.floor(
-    runtime % 60
-  )}min`;
+  const movieTime = movieTimeFormatter(runtime);
+
+  const { crew } = credits;
+  const director = movieDirector(crew);
 
   return (
     <article
@@ -59,6 +65,18 @@ const MovieInfo = ({ movieInfo, className }: MovieInfoProps) => {
           <p>
             <span className="text-lg font-bold">Sinopse:</span> <br></br>
             {overview}
+          </p>
+        )}
+        {!!budget && (
+          <p>
+            <span className="text-lg font-bold">Orçamento:</span> <br></br>
+            USD: {budgetFormatter(budget)}
+          </p>
+        )}
+        {!!director && (
+          <p>
+            <span className="text-lg font-bold">Direção:</span> <br></br>
+            {director.name}
           </p>
         )}
       </div>
