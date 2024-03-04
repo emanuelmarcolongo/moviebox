@@ -36,7 +36,7 @@ const CastList = ({ cast }: CastListProps) => {
                   <Image
                     priority
                     loading="eager"
-                    className="hover:cursor-pointer  w-full rounded-t-2xl "
+                    className="hover:cursor-pointer  w-full rounded-full "
                     alt={`${item.name} image`}
                     width={180}
                     height={200}
@@ -48,7 +48,7 @@ const CastList = ({ cast }: CastListProps) => {
                 <Link href={hrefHandler(item)}>
                   <Image
                     loading="lazy"
-                    className="hover:cursor-pointer  w-full rounded-t-2xl"
+                    className="hover:cursor-pointer  w-full rounded-full"
                     alt={`${item.name} image`}
                     width={180}
                     height={200}
@@ -57,14 +57,13 @@ const CastList = ({ cast }: CastListProps) => {
                 </Link>
               )}
               {!item.profile_path && (
-                <div className="body-background-gray w-[180px] h-[250px] text-white flex items-center justify-center text-center flex-wrap">
+                <div className="body-background-gray w-[180px] h-[250px] text-white flex items-center justify-center text-center flex-wrap rounded-full">
                   Imagem <br></br>indisponível
                 </div>
               )}
 
-              <div className=" text-white border-2 font-bold -mt-1 flex flex-col items-center justify-center text-center rounded-b-2xl py-2">
+              <div className=" text-white font-bold -mt-1 flex flex-col items-center justify-center text-center rounded-b-2xl py-2 mt-6">
                 <p>{item.name}</p>
-
                 <p className="font-normal text-center ">{item.character}</p>
               </div>
             </CarouselItem>
