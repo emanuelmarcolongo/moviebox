@@ -79,6 +79,7 @@ const ContentList = async ({
             <CarouselItem key={item.id} className="basis-1/8  ">
               <Link href={hrefHandler(item)}>
                 <Image
+                  style={{ width: "auto", height: "auto" }}
                   className="m-1 hover:cursor-pointer hover:scale-105  rounded-2xl "
                   alt="poster img"
                   width={180}
