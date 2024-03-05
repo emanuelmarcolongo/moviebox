@@ -24,7 +24,10 @@ const CastList = ({ cast }: CastListProps) => {
     >
       <h1 className="font-bold text-3xl py-2 text-white text-center">Elenco</h1>
 
-      <Carousel className="max-w-[970px] mx-auto px-10 ">
+      <Carousel
+        opts={{ dragFree: true }}
+        className="max-w-[970px] mx-auto px-10  "
+      >
         <CarouselContent>
           {cast?.map((item, idx) => (
             <CarouselItem

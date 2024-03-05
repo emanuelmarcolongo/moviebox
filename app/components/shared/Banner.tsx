@@ -8,7 +8,7 @@ type BannerProps = {
 const Banner = ({ imageUrl, className }: BannerProps) => {
   return (
     <div
-      className={`${className} bg-transparent rounded-xl inset_shadow lg:w-[1024px] w-screen aspect-video -mt-24 relative`}
+      className={`${className} bg-transparent rounded-xl inset_shadow lg:w-[1024px] w-screen aspect-video md:mb-12 relative`}
     >
       <Image
         sizes="(min-width: 1080px) 1024px, 95.26vw"

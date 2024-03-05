@@ -18,7 +18,10 @@ const PersonMovies = ({ movies }: PersonMovieProps) => {
   return (
     <section className="space-y-6 w-screen mt-24 body-background-black py-8 border-t-2 border-b-2 border-white">
       <h1 className="text-2xl font-bold text-white text-center">Filmes</h1>
-      <Carousel className="max-w-[970px] mx-auto px-12 md:px-0  ">
+      <Carousel
+        opts={{ dragFree: true }}
+        className="max-w-[970px] mx-auto px-12 md:px-0  "
+      >
         <CarouselContent>
           {movies?.map((item, idx) => (
             <CarouselItem

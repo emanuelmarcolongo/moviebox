@@ -73,7 +73,7 @@ const ContentList = async ({
         </p>
       </div>
 
-      <Carousel className="max-w-[970px] mx-auto">
+      <Carousel opts={{ dragFree: true }} className="max-w-[970px] mx-auto">
         <CarouselContent>
           {movieData?.results?.map((item, idx) => (
             <CarouselItem key={item.id} className="basis-1/8  ">
