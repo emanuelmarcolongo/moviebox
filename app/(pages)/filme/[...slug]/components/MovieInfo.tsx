@@ -49,7 +49,9 @@ const MovieInfo = ({ movieInfo, className }: MovieInfoProps) => {
         </div>
       </div>
       <div className="flex flex-col justify-between items-start space-y-4 md:pl-12 text-sm md:text-base">
-        {!!tagline && <p className="italic text-white/75">"{tagline}"</p>}
+        {!!tagline && (
+          <p className="italic text-white/75">&quot;{tagline}&quot;</p>
+        )}
 
         <div className="font-bold text-3xl ">
           {title} <span className="font-normal text-white/85">({year}) </span>
