@@ -1,4 +1,4 @@
-import { Movie, Person, SearchData, TVShow } from "../@types/search";
+import { Movie, Person, SearchData, TVShow } from "../types/search";
 
 const searchDataHandler = ({ results }: SearchData) => {
   const movies: Movie[] = [];

@@ -1,4 +1,4 @@
-import { Actor } from "@/app/@types/cast";
+import { Actor } from "@/app/types/cast";
 import {
   Carousel,
   CarouselContent,

@@ -1,4 +1,4 @@
-import { ITrailer } from "@/app/@types/movies";
+import { ITrailer } from "@/app/types/movies";
 
 type TrailerListProps = {
   videos: ITrailer[];

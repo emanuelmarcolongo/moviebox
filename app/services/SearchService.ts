@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { SearchData } from "../@types/search";
+import { SearchData } from "../types/search";
 
 const searchContent = async (word: string): Promise<SearchData> => {
   const url = `https://api.themoviedb.org/3/search/multi?query=${word}&include_adult=false&language=pt-br&page=1`;

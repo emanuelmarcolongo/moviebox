@@ -1,4 +1,4 @@
-import { IPerson } from "@/app/@types/person";
+import { IPerson } from "@/app/types/person";
 import Image from "next/image";
 import SorryImg from "@/public/icons/sorry.svg";
 

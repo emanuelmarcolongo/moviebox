@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { IShowsResultsById } from "../@types/shows";
+import { IShowsResultsById } from "../types/shows";
 
 const getShowDataById = async (id: string): Promise<IShowsResultsById> => {
   const url = `https://api.themoviedb.org/3/tv/${id}?append_to_response=videos%2Ccredits&language=pt-br`;

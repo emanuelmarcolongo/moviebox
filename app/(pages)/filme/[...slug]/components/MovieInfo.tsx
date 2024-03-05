@@ -1,4 +1,4 @@
-import { IMovieByIdResults } from "@/app/@types/movies";
+import { IMovieByIdResults } from "@/app/types/movies";
 import {
   budgetFormatter,
   movieDirector,

@@ -1,4 +1,4 @@
-import { IShowsResultsById } from "@/app/@types/shows";
+import { IShowsResultsById } from "@/app/types/shows";
 import Image from "next/image";
 import React from "react";
 

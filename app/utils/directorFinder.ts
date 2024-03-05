@@ -1,4 +1,4 @@
-import { Crew } from "../@types/cast";
+import { Crew } from "../types/cast";
 
 export const movieDirector = (crew: Crew[]) => {
   for (let person of crew) {

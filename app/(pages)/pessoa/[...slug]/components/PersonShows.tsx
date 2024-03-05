@@ -1,4 +1,4 @@
-import { PersonTV } from "@/app/@types/person";
+import { PersonTV } from "@/app/types/person";
 import {
   Carousel,
   CarouselContent,

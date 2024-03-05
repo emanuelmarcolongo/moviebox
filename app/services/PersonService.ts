@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { IPerson } from "../@types/person";
+import { IPerson } from "../types/person";
 
 const getPersonDataById = async (id: string): Promise<IPerson> => {
   const url = `https://api.themoviedb.org/3/person/${id}?append_to_response=movie_credits%2Ctv_credits%2Cimages&language=pt-br`;

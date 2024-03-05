@@ -1,4 +1,4 @@
-import { ImageInfo } from "@/app/@types/person";
+import { ImageInfo } from "@/app/types/person";
 import {
   Carousel,
   CarouselContent,

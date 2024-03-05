@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { IMovieByIdResults } from "../@types/movies";
+import { IMovieByIdResults } from "../types/movies";
 
 const getMovieDataById = async (id: string): Promise<IMovieByIdResults> => {
   const url = `https://api.themoviedb.org/3/movie/${id}?append_to_response=videos%2Ccredits&language=pt-br`;

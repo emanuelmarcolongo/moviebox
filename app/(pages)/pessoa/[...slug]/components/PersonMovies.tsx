@@ -1,4 +1,4 @@
-import { PersonMovie } from "@/app/@types/person";
+import { PersonMovie } from "@/app/types/person";
 import {
   Carousel,
   CarouselContent,
