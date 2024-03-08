@@ -40,6 +40,7 @@ const MovieInfo = ({ movieInfo, className }: MovieInfoProps) => {
     >
       <div className="relative md:w-[200px] lg:h-[300px] w-[300px] h-[400px] object-cover overflow-hidden md:min-w-[200px] rounded-md drop-shadow-2xl">
         <Image
+          sizes="(min-width: 780px) 200px, 300px"
           alt={`${title} poster`}
           src={process.env.IMG_URL + poster_path}
           fill

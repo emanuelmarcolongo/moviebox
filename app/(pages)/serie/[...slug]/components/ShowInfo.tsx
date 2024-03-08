@@ -28,6 +28,7 @@ const ShowInfo = ({ showInfo, className }: ShowInfoProps) => {
     >
       <div className="relative md:w-[200px] lg:h-[300px] w-[300px] h-[400px] object-cover overflow-hidden md:min-w-[200px]">
         <Image
+          sizes="(min-width: 780px) 200px, 300px"
           alt={`${name} poster`}
           src={process.env.IMG_URL + poster_path}
           fill

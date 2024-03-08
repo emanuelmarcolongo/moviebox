@@ -55,7 +55,10 @@ const SearchInput = ({ showInput, setShowInput }: SearchInputProps) => {
         placeholder="Buscar"
       />
 
-      <button className="absolute right-2" type="submit">
+      <button
+        className="absolute right-0 w-[50px] h-[50px] flex items-center justify-center "
+        type="submit"
+      >
         <SearchIcon
           className={`hover:scale-y-110 hover:cursor-pointer ${
             showInput ? "fill-black" : "fill-white"

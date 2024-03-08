@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="poster  bg-cover  rounded-b-3xl inset_shadow lg:w-[1024px] w-screen aspect-video relative" />
+    <div className="poster  bg-cover  inset_shadow lg:w-[1200px] w-screen aspect-video relative py-10" />
   );
 };
 

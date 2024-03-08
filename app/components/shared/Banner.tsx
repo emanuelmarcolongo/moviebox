@@ -11,7 +11,7 @@ const Banner = ({ imageUrl, className }: BannerProps) => {
       className={`${className} bg-transparent rounded-xl inset_shadow lg:w-[1024px] w-screen aspect-video md:mb-12 relative`}
     >
       <Image
-        sizes="(min-width: 1080px) 1024px, 95.26vw"
+        sizes="(min-width: 1080px) 1024px, 100vw"
         priority
         placeholder="empty"
         alt="movie poster"

@@ -34,20 +34,7 @@ const CastList = ({ cast }: CastListProps) => {
               key={item.id}
               className="basis-1/2 sm:basis-1/3 md:basis-1/5 hover:scale-[102%]  "
             >
-              {item.profile_path && idx < 5 && (
-                <Link href={hrefHandler(item)}>
-                  <Image
-                    priority
-                    loading="eager"
-                    className="hover:cursor-pointer  w-full rounded-full "
-                    alt={`${item.name} image`}
-                    width={180}
-                    height={200}
-                    src={`${process.env.IMG_URL}${item.profile_path}`}
-                  />
-                </Link>
-              )}
-              {item.profile_path && idx >= 5 && (
+              {item.profile_path && (
                 <Link href={hrefHandler(item)}>
                   <Image
                     loading="lazy"
@@ -60,12 +47,12 @@ const CastList = ({ cast }: CastListProps) => {
                 </Link>
               )}
               {!item.profile_path && (
-                <div className="body-background-gray w-[180px] h-[250px] text-white flex items-center justify-center text-center flex-wrap rounded-full">
+                <div className="body-background-gray w-[250px] h-[370px] sm:w-[180px] sm:h-[250px] text-white flex items-center justify-center text-center rounded-full">
                   Imagem <br></br>indisponível
                 </div>
               )}
 
-              <div className=" text-white font-bold -mt-1 flex flex-col items-center justify-center text-center rounded-b-2xl py-2 mt-6">
+              <div className=" text-white font-bold flex flex-col items-center justify-center text-center rounded-b-2xl py-2 mt-6">
                 <p>{item.name}</p>
                 <p className="font-normal text-center ">{item.character}</p>
               </div>

@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 .inset_shadow {
-  -webkit-box-shadow: inset 1px -31px 52px 74px rgba(19, 19, 19, 1);
-  -moz-box-shadow: inset 1px -31px 52px 74px rgba(19, 19, 19, 1);
-  box-shadow: inset 1px -31px 52px 74px rgba(19, 19, 19, 1);
+  -webkit-box-shadow: inset -20px -30px 66px 74px rgba(19, 19, 19, 1);
+  -moz-box-shadow: inset -20px -30px 66px 74px rgba(19, 19, 19, 1);
+  box-shadow: inset -20px -30px 66px 74px rgba(19, 19, 19, 1);
 }
 
 .poster {
-  background-image: url("../public/images/moviebox-banner.png");
+  background-image: url("../public/images/moviebox-banner.webp");
   mask-repeat: no-repeat;
 }
 

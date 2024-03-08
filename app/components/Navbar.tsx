@@ -10,10 +10,10 @@ import { useState } from "react";
 const Navbar = () => {
   const [showInput, setShowInput] = useState<boolean>(false);
   return (
-    <div className="w-full body-background-black h-[50px] bg-opacity-0 fixed top-0 hover:bg-opacity-50 z-50">
+    <div className="w-full bg-black bg-opacity-40 h-[50px]  fixed top-0 hover:bg-opacity-100 z-50">
       <div
         onClick={() => setShowInput(false)}
-        className="max-w-[970px] mx-auto flex justify-between items-center text-xs md:text-sm "
+        className="max-w-[970px] mx-auto flex justify-between items-center text-xs md:text-sm"
       >
         <Link href={`/`}>
           <Image
