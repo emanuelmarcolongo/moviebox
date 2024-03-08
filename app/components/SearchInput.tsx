@@ -23,7 +23,8 @@ const SearchInput = ({ showInput, setShowInput }: SearchInputProps) => {
     setValue(e.target.value);
   };
 
-  const handleInputClick = () => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
     if (!showInput && inputRef.current) {
       setShowInput(true);
       inputRef.current.focus();
@@ -37,7 +38,10 @@ const SearchInput = ({ showInput, setShowInput }: SearchInputProps) => {
   };
 
   return (
-    <div className="flex  max-w-sm items-center space-x-2  h-[50px] relative">
+    <form
+      onSubmit={(event) => handleSubmit(event)}
+      className="flex  max-w-sm items-center space-x-2  h-[50px] relative"
+    >
       <Input
         ref={inputRef}
         value={value}
@@ -51,18 +55,14 @@ const SearchInput = ({ showInput, setShowInput }: SearchInputProps) => {
         placeholder="Buscar"
       />
 
-      <button
-        className="absolute right-2"
-        type="submit"
-        onClick={() => handleInputClick()}
-      >
+      <button className="absolute right-2" type="submit">
         <SearchIcon
           className={`hover:scale-y-110 hover:cursor-pointer ${
             showInput ? "fill-black" : "fill-white"
           }`}
         />
       </button>
-    </div>
+    </form>
   );
 };
 
