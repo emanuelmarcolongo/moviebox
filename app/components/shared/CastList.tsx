@@ -47,7 +47,7 @@ const CastList = ({ cast }: CastListProps) => {
                 </Link>
               )}
               {!item.profile_path && (
-                <div className="body-background-gray w-[250px] h-[370px] sm:w-[180px] sm:h-[250px] text-white flex items-center justify-center text-center rounded-full">
+                <div className="body-background-gray w-full h-[70%]  text-white flex items-center justify-center text-center rounded-full">
                   Imagem <br></br>indisponível
                 </div>
               )}

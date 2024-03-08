@@ -64,11 +64,11 @@ const ContentList = async ({
 
   return (
     <section className={`w-screen ${className} py-10`}>
-      <div className="flex  text-white items-end justify-between max-w-[970px] mx-auto py-4">
-        <h1 className="font-bold text-3xl py-2 text-center capitalize align-middle">
+      <div className="flex  text-white items-center justify-between max-w-[970px] mx-auto py-4">
+        <h1 className="font-bold text-3xl py-2 text-center capitalize">
           {title}
         </h1>
-        <p className="hover:underline uppercase hover:cursor-pointer font-bold">
+        <p className="hover:underline uppercase hover:cursor-pointer  font-bold">
           ver mais...
         </p>
       </div>
