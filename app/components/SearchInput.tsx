@@ -1,12 +1,19 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
-import { SetStateAction, useState } from "react";
+import React, { SetStateAction, useRef, useState } from "react";
 import { SearchIcon } from "./Icons";
+import { useRouter } from "next/navigation";
 
-const SearchInput = () => {
-  const [value, setValue] = useState("");
+type SearchInputProps = {
+  showInput: boolean;
+  setShowInput: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const SearchInput = ({ showInput, setShowInput }: SearchInputProps) => {
+  const router = useRouter();
+  const [value, setValue] = useState<string>("");
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleInputChange = (e: {
     preventDefault: () => void;
@@ -15,18 +22,46 @@ const SearchInput = () => {
     e.preventDefault();
     setValue(e.target.value);
   };
+
+  const handleInputClick = () => {
+    if (!showInput && inputRef.current) {
+      setShowInput(true);
+      inputRef.current.focus();
+    } else if (showInput) {
+      if (value.length >= 3) {
+        setShowInput(false);
+        setValue("");
+        router.push(`/buscar/${value}`);
+      }
+    }
+  };
+
   return (
-    <div className="flex w-full max-w-sm items-center space-x-2 p-2 h-[50px]">
+    <div className="flex  max-w-sm items-center space-x-2  h-[50px] relative">
       <Input
+        ref={inputRef}
         value={value}
         onChange={handleInputChange}
-        className="text-xs md:text-sm text-black"
+        className={`text-xs md:text-sm text-black relative ease-in transition-all duration-300 ${
+          showInput
+            ? "block w-[150px] md:w-[250px]"
+            : "w-0 bg-transparent border-transparent"
+        }`}
         type="text"
         placeholder="Buscar"
-      />{" "}
-      <Link href={`/buscar/${value}`}>
-        <SearchIcon className="hover:scale-y-110 hover:cursor-pointer" />
-      </Link>
+      />
+
+      <button
+        className="absolute right-2"
+        type="submit"
+        onClick={() => handleInputClick()}
+      >
+        <SearchIcon
+          className={`hover:scale-y-110 hover:cursor-pointer ${
+            showInput ? "fill-black" : "fill-white"
+          }`}
+        />
+      </button>
     </div>
   );
 };
