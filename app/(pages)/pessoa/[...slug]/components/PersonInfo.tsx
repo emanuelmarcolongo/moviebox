@@ -22,7 +22,7 @@ const PersonInfo = ({ personInfo }: PersonInfoProps) => {
   };
   return (
     <main className="mt-24 text-white  flex flex-col items-center px-8 space-y-6 md:px-0 md:space-y-0 md:flex-row md:items-start md:space-x-10 relative w-full">
-      <div className="relative md:w-[200px] lg:h-[300px] w-[300px] h-[400px] object-cover overflow-hidden md:min-w-[200px] rounded-md drop-shadow-2xl">
+      <div className="relative md:w-[200px] lg:h-[300px] w-[300px] h-[450px] object-cover overflow-hidden md:min-w-[200px] rounded-md drop-shadow-2xl">
         <Image
           alt={`${name} photo`}
           src={process.env.IMG_URL + profile_path}

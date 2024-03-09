@@ -38,7 +38,7 @@ const MovieInfo = ({ movieInfo, className }: MovieInfoProps) => {
     <article
       className={`${className} -mt-10 z-10  text-white flex flex-col items-center px-8 space-y-6 md:space-y-0 md:flex-row md:items-start md:space-x-10 relative`}
     >
-      <div className="relative md:w-[200px] lg:h-[300px] w-[300px] h-[400px] object-cover overflow-hidden md:min-w-[200px] rounded-md drop-shadow-2xl">
+      <div className="relative md:w-[200px] lg:h-[400px]  w-[300px] h-[450px] object-cover overflow-hidden md:min-w-[300px] rounded-md drop-shadow-2xl">
         <Image
           sizes="(min-width: 780px) 200px, 300px"
           alt={`${title} poster`}

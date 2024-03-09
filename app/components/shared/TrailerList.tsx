@@ -18,19 +18,19 @@ const TrailerList = ({ videos }: TrailerListProps) => {
   );
 
   return (
-    <section className=" text-white my-12 space-y-8">
+    <section className=" text-white my-12 space-y-8 w-full">
       {trailers.length > 0 && (
         <>
           <h1 className="font-semibold text-white text-3xl text-center">
             Trailer
           </h1>
 
-          <Carousel className="lg:w-[970px] w-full mx-auto md:px-12 text-black ">
+          <Carousel className="lg:w-[970px] w-full mx-auto px-12 text-black ">
             <CarouselContent>
               {trailers?.map((trailer, idx) => (
                 <CarouselItem className="" key={trailer.id}>
                   <iframe
-                    className="w-3/4 h-[400px] rounded-2xl mx-auto"
+                    className="  w-full min-h-[400px] rounded-2xl mx-auto"
                     src={`https://www.youtube.com/embed/${trailer.key}`}
                     allowFullScreen
                   />
