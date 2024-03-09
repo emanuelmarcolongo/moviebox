@@ -46,7 +46,7 @@ const SearchInput = ({ showInput, setShowInput }: SearchInputProps) => {
         ref={inputRef}
         value={value}
         onChange={handleInputChange}
-        className={`text-xs md:text-sm text-black relative ease-in transition-all duration-300 ${
+        className={`text-xs md:text-sm text-black relative ease-in transition-all duration-300 outline-none focus:outline-none focus-visible:ring-offset-transparent ${
           showInput
             ? "block w-[150px] md:w-[250px]"
             : "w-0 bg-transparent border-transparent"
