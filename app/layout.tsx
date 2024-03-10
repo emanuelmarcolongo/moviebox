@@ -18,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${lexend.className} body-background-gray`}>
+      <body
+        className={`${lexend.className} body-background-gray overflow-x-hidden`}
+      >
         <Navbar />
         <div className="max-w-[970px] mx-auto">{children}</div>
       </body>
