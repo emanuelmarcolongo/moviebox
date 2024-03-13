@@ -1,4 +1,5 @@
-import { PersonMovie } from "@/app/types/person";
+import { Movie } from "@/app/types/search";
+import { hrefHandler } from "@/app/utils";
 import {
   Carousel,
   CarouselContent,
@@ -10,11 +11,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-type PersonMovieProps = {
-  movies?: PersonMovie[];
+type MovieListProps = {
+  movies?: Movie[];
 };
 
-const PersonMovies = ({ movies }: PersonMovieProps) => {
+const MovieList = ({ movies }: MovieListProps) => {
   return (
     <section className="space-y-6 w-screen mt-24 body-background-black py-8 border-t-2 border-b-2 border-white">
       <h1 className="text-2xl font-bold text-white text-center">Filmes</h1>
@@ -29,7 +30,7 @@ const PersonMovies = ({ movies }: PersonMovieProps) => {
               className="basis-1/2 sm:basis-1/3 md:basis-1/5 hover:scale-[102%]  "
             >
               {!!item.poster_path && (
-                <Link href={`/filme/${item.title}?id=${item.id}`}>
+                <Link href={hrefHandler(item)}>
                   <Image
                     alt="poster img"
                     className="rounded-xl"
@@ -40,7 +41,7 @@ const PersonMovies = ({ movies }: PersonMovieProps) => {
                 </Link>
               )}
               {!item.poster_path && (
-                <Link href={`/filme/${item.title}?id=${item.id}`}>
+                <Link href={hrefHandler(item)}>
                   <div className="bg-white rounded-xl w-full h-full flex flex-col items-center justify-evenly">
                     Imagem indisponível <br></br>
                     <p className="text-3xl font-bold">{item.title}</p>
@@ -57,4 +58,4 @@ const PersonMovies = ({ movies }: PersonMovieProps) => {
   );
 };
 
-export default PersonMovies;
+export default MovieList;

@@ -1,3 +1,5 @@
+import { Movie, TVShow } from "./search";
+
 export type { IPerson, PersonMovie, PersonTV, ImageInfo };
 
 interface IPerson {
@@ -16,10 +18,10 @@ interface IPerson {
   popularity: number;
   profile_path: string;
   movie_credits: {
-    cast: PersonMovie[];
+    cast: Movie[];
   };
   tv_credits: {
-    cast: PersonTV[];
+    cast: TVShow[];
   };
   images: {
     profiles: ImageInfo[];

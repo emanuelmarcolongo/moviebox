@@ -1,4 +1,4 @@
-import { PersonTV } from "@/app/types/person";
+import { TVShow } from "@/app/types/search";
 import {
   Carousel,
   CarouselContent,
@@ -9,12 +9,12 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-type PersonShowsProps = {
-  shows?: PersonTV[];
+type ShowListProps = {
+  shows?: TVShow[];
 };
-const PersonShows = ({ shows }: PersonShowsProps) => {
+const ShowList = ({ shows }: ShowListProps) => {
   return (
-    <section className="space-y-6 w-screen mt-24">
+    <section className="space-y-6 w-screen mt-24 mb-14">
       <h1 className="text-2xl font-bold text-white text-center">Séries</h1>
       <Carousel
         opts={{ dragFree: true }}
@@ -45,4 +45,4 @@ const PersonShows = ({ shows }: PersonShowsProps) => {
   );
 };
 
-export default PersonShows;
+export default ShowList;

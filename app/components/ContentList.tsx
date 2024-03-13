@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Carousel,
   CarouselContent,
@@ -6,38 +5,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ITrendingMoviesResults, IRequestMovieData } from "../types/movies";
 import Image from "next/image";
 import Link from "next/link";
-import { IShowResponseData, IShowsResults } from "../types/shows";
-
-const getDataFromUrl = async (
-  url: string
-): Promise<IRequestMovieData | IShowResponseData | void> => {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${process.env.MOVIEDB_API_TOKEN}`,
-    },
-    next: {
-      revalidate: 99600,
-    },
-  };
-
-  try {
-    const response = await fetch(url, options);
-
-    if (!response.ok) {
-      throw new Error(`Erro na requisição: ${response.status}`);
-    }
-
-    const data: IRequestMovieData = await response.json();
-    return data;
-  } catch (err) {
-    console.error(err);
-  }
-};
+import getDataFromUrl from "../services/DataFromUrl";
+import { hrefHandler } from "../utils";
 
 const ContentList = async ({
   title,
@@ -49,18 +20,6 @@ const ContentList = async ({
   className?: string;
 }) => {
   const movieData = await getDataFromUrl(url);
-
-  const hrefHandler = (
-    item: ITrendingMoviesResults | IShowsResults
-  ): { pathname: string; query: { id: number } } => {
-    if ("title" in item) {
-      const cleanTitle = item.title.replaceAll(" ", "-").toLowerCase();
-      return { pathname: `/filme/${cleanTitle}`, query: { id: item.id } };
-    } else if ("name" in item) {
-      const cleanName = item.name.replaceAll(" ", "-").toLowerCase();
-      return { pathname: `/serie/${cleanName}`, query: { id: item.id } };
-    } else throw new Error("Tipo de mídia não encontrado");
-  };
 
   return (
     <section className={`w-screen ${className} py-10`}>

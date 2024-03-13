@@ -1,5 +1,8 @@
 import { searchService } from "@/app/services/SearchService";
-import searchDataHandler from "@/app/utils/handleSearchData";
+import { searchDataHandler, searchStringFormatter } from "@/app/utils";
+import ShowList from "@/app/components/shared/ShowList";
+import MovieList from "../../../components/shared/MovieList";
+import PersonList from "./components/PersonList";
 
 type SearchPageProps = {
   params: {
@@ -12,29 +15,16 @@ const SearchPage = async ({ params }: SearchPageProps) => {
   const data = await searchService.searchContent(slug);
   const { movies, persons, shows } = searchDataHandler(data);
 
+  const searchString = searchStringFormatter(slug);
+
   return (
-    <div className="text-white mt-24">
-      {!!movies && (
-        <div className="p-10 bg-red-200">
-          {movies.map((movie, idx) => (
-            <p key={idx}>{movie.title}</p>
-          ))}
-        </div>
-      )}
-      {!!shows && (
-        <div className="p-10 bg-green-200">
-          {shows.map((show, idx) => (
-            <p key={idx}>{show.name}</p>
-          ))}
-        </div>
-      )}
-      {!!persons && (
-        <div className="p-10 bg-yellow-200">
-          {persons.map((person, idx) => (
-            <p key={idx}>{person.name}</p>
-          ))}
-        </div>
-      )}
+    <div className="text-white mt-24 w-full flex flex-col items-center space-y-12">
+      <h1 className="capitalize mx-auto text-xl md:text-3xl text-center">
+        Busca: {searchString}
+      </h1>
+      {movies && movies.length > 0 && <MovieList movies={movies} />}
+      {shows && shows.length > 0 && <ShowList shows={shows} />}
+      {persons && persons.length > 0 && <PersonList persons={persons} />}
     </div>
   );
 };
